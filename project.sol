@@ -58,8 +58,8 @@ contract ERC20 {
         return _allowances[beneficiary][donator];
     }
     
-    function approve(address donator, uint256 amount) public virtual returns (bool){
-        _approve(msg.sender, donator, amount);
+    function approve(address beneficiary, uint256 amount) public virtual returns (bool){
+        _approve(msg.sender, beneficiary, amount);
         return true;
     }
     
@@ -97,14 +97,14 @@ contract ERC20 {
         
     }
     
-    function _approve(address beneficiary, address donator, uint256 amount) internal virtual{
-        require(_isbeneficiary[beneficiary] == true, "ERROR: cannot approve from donator");
-        require(_isbeneficiary[donator]!=true, "ERROR: cannot approve to beneficiary");
-        require(donator !=address(0),"ERROR: approve to the zero address");
-        require(beneficiary !=address(0), "ERROR: approve from the zero address");
+    function _approve(address donator, address beneficiary, uint256 amount) internal virtual{
+        require(_isbeneficiary[donator] == true, "ERROR: cannot approve from donator");
+        require(_isbeneficiary[beneficiary]!=true, "ERROR: cannot approve to beneficiary");
+        require(beneficiary !=address(0),"ERROR: approve to the zero address");
+        require(donator !=address(0), "ERROR: approve from the zero address");
         
-        _allowances[beneficiary][donator] = amount;
-        emit Approval(beneficiary, donator, amount);
+        _allowances[donator][beneficiary] = amount;
+        emit Approval(donator, beneficiary, amount);
     }
     
     event Transfer(address indexed from, address indexed to, uint256 value);
