@@ -33,7 +33,7 @@
 #### name, symbol, balanceOf, allowance, approve는 예제 코드랑 비슷
 
 1. isbene
->해당 address가 수혜자의 address인지를 확인하는 function.
+>해당 address의 종류가 수혜자인지 기부자인지를 확인하는 function. (_isbeneficiary 이용)
 
 2. totaldonation / totaldonator
 > totaldonation은 누적 기부액을 확인하는 function.
