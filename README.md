@@ -30,7 +30,7 @@
 
 ## functions
 
-#### name, symbol, balanceOf, allowance, beneficiary , approve는 예제 코드랑 비슷
+#### name, symbol, balanceOf, allowance, approve는 예제 코드랑 비슷
 
 1. isbene
 >해당 address가 수혜자의 address인지를 확인하는 function.
