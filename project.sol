@@ -20,11 +20,10 @@ contract ERC20 {
     uint256 private _initialtoken = 0;
     
     
-    constructor (string memory name_, string memory symbol_, bool isbeneficiary_){
+    constructor (string memory name_, string memory symbol_){
         
         _name = name_;
         _symbol = symbol_;
-        _isbeneficiary[msg.sender] = isbeneficiary_;
         _totaldonator[msg.sender] = 0;
         _balances[msg.sender] = _initialtoken;
         _totaldonation[msg.sender] = _initialtoken;
@@ -54,8 +53,8 @@ contract ERC20 {
         return _totaldonator[account];
     }
     
-    function allowance(address beneficiary, address donator) public view virtual returns (uint256){
-        return _allowances[beneficiary][donator];
+    function allowance(address donator, address beneficiary) public view virtual returns (uint256){
+        return _allowances[donator][beneficiary];
     }
     
     function approve(address beneficiary, uint256 amount) public virtual returns (bool){
